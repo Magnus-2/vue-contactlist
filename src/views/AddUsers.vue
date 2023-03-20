@@ -69,7 +69,7 @@ export default {
       const token = this.$store.getters.getToken;
       console.log(token)
       console.log(this.User)
-      axios.post('http://127.0.0.1:3000/users', this.User, {
+      axios.post('https://contact0724.as.r.appspot.com/users', this.User, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then((response)=>{

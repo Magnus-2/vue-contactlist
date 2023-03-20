@@ -125,14 +125,14 @@ export default {
   methods: {
   loginAPI() {
     console.log(this.User)
-    axios.post('http://127.0.0.1:3000/api/login', this.User)
+    axios.post('https://contact0724.as.r.appspot.com/api/login', this.User)
     .then((response)=>{
       console.log(response)
       if (response.headers['content-length'] > 100) {
         const token = response.data.token;
         console.log(token)
         this.$store.dispatch('setToken', token);
-        axios.get('http://127.0.0.1:3000/users', {
+        axios.get('https://contact0724.as.r.appspot.com/users', {
           headers: { Authorization: `Bearer ${token}` }
         })
         .then((response)=>{

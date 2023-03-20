@@ -72,7 +72,7 @@ type="button">Add user</button> </router-link> </div> </template> -->
             }
             // const token = this.$store.getters.getToken; console.log(token)
             axios
-                .get('http://127.0.0.1:3000/users', {
+                .get('https://contact0724.as.r.appspot.com/users', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -103,7 +103,7 @@ type="button">Add user</button> </router-link> </div> </template> -->
             deleteUser(UserId) {
                 const token = this.$store.getters.getToken;
                 axios
-                    .delete("http://127.0.0.1:3000/users/" + UserId, {
+                    .delete("https://contact0724.as.r.appspot.com/users/" + UserId, {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }

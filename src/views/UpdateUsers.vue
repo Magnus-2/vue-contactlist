@@ -61,7 +61,7 @@ export default {
     updateToAPI() {
       const token = this.$store.getters.getToken;
       console.log(this.User)
-      axios.post('http://127.0.0.1:3000/users/'+this.$route.params.userid, this.User,{
+      axios.post('https://contact0724.as.r.appspot.com/users/'+this.$route.params.userid, this.User,{
         headers: { Authorization: `Bearer ${token}` }
       })
       .then((response)=>{
@@ -76,7 +76,7 @@ export default {
   },
   mounted(){
     const token = this.$store.getters.getToken;
-    axios.get('http://127.0.0.1:3000/users/'+this.$route.params.userid, {
+    axios.get('https://contact0724.as.r.appspot.com/users/'+this.$route.params.userid, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then((response)=>{
