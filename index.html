@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+    <style>
+      header{
+        height: 40px;
+        width: 100%;
+        background-color: black;
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+        h3{
+          color: grey;
+          justify-content: left;
+          margin-right: 80%;
+        }
+        #fa-user{
+          color: white!important;
+        }
+        #logout{
+          color: white;
+        }
+
+
+
+    </style>
+  </head>
+  <body>
+    <header >
+      <img src="https://images.ctfassets.net/ooa29xqb8tix/RrX9HCiZ8qPoIpJSlHphR/f9778b44e2b768d31fafb4ac70956682/vue-logo.png?w=400&q=50" alt="">
+      <h3>Contacts</h3>
+      <button id="logout" class="btn" type="submit"><i id="fa-user" class="fa fa-user"></i> Logout</button>
+    </header>
+    <div id="app"></div>
+    <script>
+      function logout(){
+            localStorage.removeItem('token');
+            window.location.href = '/';
+        }
+      
+      document.getElementById("logout").addEventListener("click", function(){
+            logout();
+      });
+    </script>
+    <script type="module" src="/src/main.js">
+    </script>
+  </body>
+</html>
