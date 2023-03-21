@@ -1,13 +1,3 @@
-<!-- <template> <div class="users"> <h1>User page</h1> <input type="text"
-v-model="search"> <table> <tr> <th>Firstname</th> <th>Lastname</th>
-<th>Email</th> <th>Action</th> </tr> <tbody> <tr v-for="auser in filterUsers"
-v-bind:key="auser.id"> <td>{{auser.firstName}}</td> <td>{{auser.lastName}}</td>
-<td>{{auser.email}}</td> <td> <router-link :to="{path: 'updateusers', name:
-'UpdateUsers', params: {userid: auser._id}}"> <button type="button" class="btn
-btn-warning">Edit</button> </router-link> <router-link to="/users"> <button
-type="submit" @click="deleteUser(auser._id)">Delete</button> </router-link>
-</td> </tr> </tbody> </table> <router-link to="addusers"> <button
-type="button">Add user</button> </router-link> </div> </template> -->
 
 <template>
     <div class="users">
@@ -54,6 +44,8 @@ type="button">Add user</button> </router-link> </div> </template> -->
 
 <script>
     import axios from 'axios'
+    import Cookies from 'js-cookie'
+    
     export default {
         name: 'Users',
         data() {
@@ -62,13 +54,13 @@ type="button">Add user</button> </router-link> </div> </template> -->
         mounted() {
             let token = this.$store.getters.getToken;
             if (!token) {
-                token = localStorage.getItem('token');
-                this.$store.dispatch('setToken', token);
+                token = this.$store.dispatch('setToken', token);
                
             }
             if (!token) {
+                token = Cookies.get('token');
                 this.$router.push('/');
-                return;
+                
             }
             // const token = this.$store.getters.getToken; console.log(token)
             axios
@@ -110,7 +102,8 @@ type="button">Add user</button> </router-link> </div> </template> -->
                     })
                     .then((response) => {
                         console.log('Delete User Id:' + UserId)
-                        localStorage.setItem('token', token)
+
+                        Cookies.set('token',token)
 
                     })
                     .catch((error) => {
