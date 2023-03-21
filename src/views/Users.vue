@@ -103,7 +103,7 @@
                     })
                     .then((response) => {
                         console.log('Delete User Id:' + UserId)
-
+                        this.$router.push('/deleteview');
                     })
                     .catch((error) => {
                         console.log(error)
