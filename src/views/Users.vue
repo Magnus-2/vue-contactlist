@@ -31,7 +31,7 @@
                                         :to="{path: 'updateusers', name: 'UpdateUsers', params: {userid: auser._id}}">
                                         <button type="button" class="btn btn-primary">Edit</button>
                                     </router-link>
-                                    <router-link to="/deleteview">
+                                    <router-link to="deleteview">
                                         <button type="submit" @click="deleteUser(auser._id)" class="btn btn-danger">Delete</button>
                                     </router-link>
                                 </div>
@@ -103,7 +103,6 @@
                     })
                     .then((response) => {
                         console.log('Delete User Id:' + UserId)
-                        Cookies.set('token',token)
 
                     })
                     .catch((error) => {
@@ -111,7 +110,6 @@
                         alert(error.message)
                         this.$router.push('/');
                     })
-                    this.$router.push('/deleteview')
                     
 
             }
