@@ -31,7 +31,7 @@
                                         :to="{path: 'updateusers', name: 'UpdateUsers', params: {userid: auser._id}}">
                                         <button type="button" class="btn btn-primary">Edit</button>
                                     </router-link>
-                                    <router-link to="/users">
+                                    <router-link to="/deleteview">
                                         <button type="submit" @click="deleteUser(auser._id)" class="btn btn-danger">Delete</button>
                                     </router-link>
                                 </div>
@@ -44,7 +44,7 @@
 
 <script>
     import axios from 'axios'
-    import Cookies from 'js-cookie'
+    import Cookies from '../../node_modules/js-cookie/dist/js.cookie'
     
     export default {
         name: 'Users',
@@ -60,8 +60,8 @@
                
             }
             if (!token) {
-              this.$router.push('/');
-                return 
+             this.$router.push('/');
+                return;
             }
             // const token = this.$store.getters.getToken; console.log(token)
             axios
@@ -103,7 +103,6 @@
                     })
                     .then((response) => {
                         console.log('Delete User Id:' + UserId)
-
                         Cookies.set('token',token)
 
                     })
@@ -112,7 +111,8 @@
                         alert(error.message)
                         this.$router.push('/');
                     })
-                    window.location.reload()
+                    this.$router.push('/deleteview')
+                    
 
             }
         }

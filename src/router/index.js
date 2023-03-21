@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import Users from '../views/Users.vue'
 import AddUsers from '../views/AddUsers.vue'
 import UpdateUsers from '../views/UpdateUsers.vue'
+import DeleteView from '../views/DeleteView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,14 +17,14 @@ const router = createRouter({
     //   path: '/:catchAll(.*)',
     //   redirect: '/'
     // },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    },
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   // route level code-splitting
+    //   // this generates a separate chunk (About.[hash].js) for this route
+    //   // which is lazy-loaded when the route is visited.
+    //   component: () => import('../views/AboutView.vue')
+    // },
 
     {
       path: '/users',
@@ -35,6 +36,11 @@ const router = createRouter({
       name: 'AddUsers',
       component: AddUsers
 
+    },
+    {
+      path: '/deleteview',
+      name: 'Deleteview',
+      component: DeleteView
     },
     {
       path: '/updateusers/:userid',
