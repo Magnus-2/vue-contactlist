@@ -60,7 +60,7 @@
                
             }
             if (!token) {
-              //  this.$router.push('/');
+              this.$router.push('/');
                 return 
             }
             // const token = this.$store.getters.getToken; console.log(token)
