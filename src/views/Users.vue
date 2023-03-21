@@ -54,13 +54,14 @@
         mounted() {
             let token = this.$store.getters.getToken;
             if (!token) {
-                token = this.$store.dispatch('setToken', token);
+                token = Cookies.get('token');
+                console.log(token)
+                this.$store.dispatch('setToken', token);
                
             }
             if (!token) {
-                token = Cookies.get('token');
-                this.$router.push('/');
-                
+              //  this.$router.push('/');
+                return 
             }
             // const token = this.$store.getters.getToken; console.log(token)
             axios
