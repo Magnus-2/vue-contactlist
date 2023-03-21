@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vite App</title>
     <style>
-      header{
+      header {
         height: 40px;
         width: 100%;
         background-color: black;
@@ -16,40 +16,37 @@
         justify-content: center;
       }
 
-        h3{
-          color: grey;
-          justify-content: left;
-          margin-right: 80%;
-        }
-        #fa-user{
-          color: white!important;
-        }
-        #logout{
-          color: white;
-        }
+      h3 {
+        color: grey;
+        justify-content: left;
+        margin-right: 80%;
+      }
 
+      #fa-user {
+        color: white!important;
+      }
 
-
+      #logout {
+        color: white;
+      }
     </style>
   </head>
   <body>
-    <header >
+    <header>
       <img src="https://images.ctfassets.net/ooa29xqb8tix/RrX9HCiZ8qPoIpJSlHphR/f9778b44e2b768d31fafb4ac70956682/vue-logo.png?w=400&q=50" alt="">
       <h3>Contacts</h3>
-      <button id="logout" class="btn" type="submit"><i id="fa-user" class="fa fa-user"></i> Logout</button>
+      <button id="logout" class="btn"><i id="fa-user" class="fa fa-user"></i> Logout</button>
     </header>
     <div id="app"></div>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.8/dist/vue.global.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script>
-      function logout(){
-           this.$router.push('/')
-        }
-      
-      document.getElementById("logout").addEventListener("click", function(){
-            logout();
-      });
-    </script>
+          const logoutButton = document.getElementById("logout");
 
+          logoutButton.addEventListener("click", () => {
+            const baseUrl = "https://vuecontact-de29c.web.app/";
+            window.open(baseUrl, "_self");
+          });
+    </script>
   </body>
 </html>

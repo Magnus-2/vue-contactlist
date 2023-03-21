@@ -7,7 +7,7 @@
   <script>
   export default {
   name: 'DeleteView',
-  mounted() {
+    mounted() {
     this.deleteUser();
   },
   methods: {
